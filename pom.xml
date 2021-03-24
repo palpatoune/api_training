@@ -13,6 +13,9 @@
 
         <spring-boot.version>2.4.3</spring-boot.version>
 
+        <junit.version>5.7.1</junit.version>
+        <assertj.version>3.19.0</assertj.version>
+
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <jacoco-maven-plugin.version>0.8.6</jacoco-maven-plugin.version>
     </properties>
@@ -40,6 +43,13 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
         <!-- Dev dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -56,6 +66,8 @@
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
+            <version>${assertj.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
@@ -114,6 +126,13 @@
                     <execution>
                         <id>report</id>
                         <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report-its</id>
+                        <phase>integration-test</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>

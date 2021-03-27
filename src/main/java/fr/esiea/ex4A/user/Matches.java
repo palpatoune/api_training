@@ -5,6 +5,10 @@ public class Matches {
     private String userTweeter;
     private String userCountry;
 
+    public String getUserCountry() {
+        return userCountry;
+    }
+
     public String getUserName() {
         return userName;
     }

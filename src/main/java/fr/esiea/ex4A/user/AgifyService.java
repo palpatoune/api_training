@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface AgifyService {
     @GET("users/")
-    Call<List<User>> listUser(@Path("user") String user);
+    Call<List<User>> groupList(@Path("id") int groupId);
 
     @POST("users/new")
     Call<User> createUser(@Body User user);

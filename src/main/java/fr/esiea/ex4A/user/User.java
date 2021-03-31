@@ -2,14 +2,14 @@ package fr.esiea.ex4A.user;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-
+@JsonDeserialize(as = User.class)
 public class User {
-    private final String userEmail;
-    private final String userName;
-    private final String userTweeter;
-    private final String userCountry;
-    private final String userSex;
-    private final String userSexPref;
+    private String userEmail;
+    private String userName;
+    private String userTweeter;
+    private String userCountry;
+    private String userSex;
+    private String userSexPref;
 
     public User(String userEmail, String userName, String userTweeter, String userCountry, String userSex, String userSexPref) {
         this.userEmail = userEmail;
@@ -22,12 +22,6 @@ public class User {
 
     public User() {
         super();
-        userEmail = null;
-        userName = null;
-        userTweeter = null;
-        userCountry = null;
-        userSex = null;
-        userSexPref = null;
     }
 
     public String getUserEmail() {

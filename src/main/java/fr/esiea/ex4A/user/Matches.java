@@ -1,14 +1,13 @@
 package fr.esiea.ex4A.user;
 
 public class Matches {
-    private final String userName;
-    private final String userTweeter;
-    private final String userCountry;
+    private String userName;
+    private String userTweeter;
+    private String userCountry;
 
     public String getUserCountry() {
         return userCountry;
     }
-
 
     public String getUserName() {
         return userName;
@@ -23,6 +22,5 @@ public class Matches {
         this.userTweeter = userTweeter;
         this.userCountry = userCountry;
     }
-
 }
 

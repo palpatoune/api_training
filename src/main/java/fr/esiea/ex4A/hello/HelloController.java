@@ -23,8 +23,4 @@ class HelloController {
             helloData = helloRepository.getHelloFor(name);
         }
         return helloData;
-    }
-
-
-
-}
+    }}

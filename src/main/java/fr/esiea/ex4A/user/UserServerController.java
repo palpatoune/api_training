@@ -2,40 +2,38 @@ package fr.esiea.ex4A.user;
 
 
 
+import java.io.IOException;
 import java.util.*;
 import java.util.ArrayList;
 
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
+import retrofit2.Call;
 
 
 @RestController
 public class UserServerController {
+    private final AgifyService agifyService;
+    final Matches match1 = new Matches("Bob","bobTweeter");
+    final Matches match2 = new Matches("aucun","aucunTweeter");
 
-    Matches match1 = new Matches("Bob","bobTweeter", "Fr");
-    Matches match2 = new Matches("rick","rickTweeter","Fr");
-    Matches match3 = new Matches("aucun","aucunTweeter","Fr");
+    public UserServerController(AgifyService agifyService) {
+        this.agifyService = agifyService;
+    }
 
-
-
-    @GetMapping("/api/matches")
-    Matches match(@RequestParam(value = "name", defaultValue = "default", required = false)String userName,
-                  @RequestParam(value = "country", defaultValue = "Eng", required = false)String userCountry){
+    @GetMapping(path = "/api/matches", produces = MediaType.APPLICATION_JSON_VALUE)
+    List<Matches> getMatch(@RequestParam(value = "userName", required = true)String userName,
+                        @RequestParam(value = "userCountry", required = true)String userCountry){
         System.out.println(userName);
-        System.out.println(match1.getUserName());
-        if (userName.equals(match1.getUserName())){
-             return match1;
-        }
-        if (userName.equals(match2.getUserName())){
-             return match2;
-        }
-        return match3;
-
+        final List<Matches> userList = this.agifyService.matchUser(userName, userCountry);
+        return userList;
     }
 
     @PostMapping("/api/inscription")
-    User newUser(@RequestBody User newUser){
-        return newUser;
+    public void newUser(@RequestBody User newUser) throws IOException {
+        this.agifyService.addUser(newUser);
     }
+
+
+
 }

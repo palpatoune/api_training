@@ -6,12 +6,24 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class UserTest {
 
+
+
+    @Test
+    void getUserName() {
+    }
+
+
+
+    @Test
+    void getUserAge() {
+    }
+
     @Test
     void getUserEmail() {
     }
 
     @Test
-    void getUserName() {
+    void testGetUserName() {
     }
 
     @Test
@@ -24,6 +36,10 @@ class UserTest {
 
     @Test
     void getUserSex() {
+    }
+
+    @Test
+    void getUserId() {
     }
 
     @Test
